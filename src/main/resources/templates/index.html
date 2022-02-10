@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Friend list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>My friends</h1>
+
+	<ul>
+		<tr th:each="kaveri : ${kaverit}">
+			<li th:text="${kaveri.nimi}">Nimi ...</li>
+		</tr>
+	</ul>
+
+	<h1>My new friend to list</h1>
+
+	<form action="#" th:action="@{/index}" th:object="${kaveri}"
+		method="post">
+		<p>
+			Name: <input type="text" th:field="*{nimi}" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" />
+		</p>
+	</form>
+</body>
+</html>
